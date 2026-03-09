@@ -1,4 +1,7 @@
 # Histogram-of-an-images
+## NAME : MUKESH D
+## REGISTER NUMBER : 212224040204
+
 ## Aim
 To obtain a histogram for finding the frequency of pixels in an Image with pixel values ranging from 0 to 255. Also write the code using OpenCV to perform histogram equalization.
 
@@ -26,8 +29,50 @@ The Histogram of gray scale image and color image is shown.
 
 ## Program:
 ```python
-# Developed By: 
-# Register Number: 
+# Developed By: MUKESH D
+# Register Number: 212224040204
+
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+image = cv2.imread('rose.jpg')
+
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+hist_original = cv2.calcHist([gray_image], [0], None, [256], [0, 256])
+
+equalized_image = cv2.equalizeHist(gray_image)
+
+hist_equalized = cv2.calcHist([equalized_image], [0], None, [256], [0, 256])
+
+plt.figure(figsize=(10, 7))
+
+plt.subplot(2, 2, 1)
+plt.imshow(gray_image, cmap='gray')
+plt.title('Original Grayscale Image')
+plt.axis('off')
+
+plt.subplot(2, 2, 2)
+plt.imshow(equalized_image, cmap='gray')
+plt.title('Equalized Image')
+plt.axis('off')
+
+plt.subplot(2, 2, 3)
+plt.plot(hist_original, color='black')
+plt.title('Original Histogram')
+plt.xlim([0, 256])
+
+
+
+plt.subplot(2, 2, 4)
+plt.plot(hist_equalized, color='black')
+plt.title('Equalized Histogram')
+plt.xlim([0, 256])
+
+plt.tight_layout()
+plt.show()
+
 
 
 
@@ -39,11 +84,18 @@ The Histogram of gray scale image and color image is shown.
 ### Input Grayscale Image and Color Image
 
 
+<img width="306" height="427" alt="image" src="https://github.com/user-attachments/assets/dcfc76c0-b0b8-4f23-a200-17647e6b584a" />
+
+
 ### Histogram of Grayscale Image and any channel of Color Image
+
+<img width="647" height="426" alt="image" src="https://github.com/user-attachments/assets/979cbe92-d9a6-418b-9669-646626573eb8" />
 
 
 
 ### Histogram Equalization of Grayscale Image.
+
+<img width="665" height="430" alt="image" src="https://github.com/user-attachments/assets/2748fc56-0868-4bf1-878c-fc56be73ff0c" />
 
 
 
